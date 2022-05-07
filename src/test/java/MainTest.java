@@ -10,8 +10,6 @@ public class MainTest {
         Assert.assertEquals(result, "S...");
 
     }
-
-
     @Test
     public void testAbbr8 () {
 
