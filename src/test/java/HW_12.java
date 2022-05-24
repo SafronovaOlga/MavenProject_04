@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 public class HW_12 {
 
     @Test
-    public void testMenuTopList (){
+    public void testMenuTopList() {
 
         String chromeDriver = "webdriver.chrome.driver";
         String driverPath = "/Users/olgasafronova/chromedriver";
@@ -26,6 +26,30 @@ public class HW_12 {
 
 
         String actualResult = searchTopList.getText();
+
+        Assert.assertEquals(actualResult, expectedResult.toUpperCase());
+
+        driver.quit();
+    }
+
+    @Test
+    public void tetsMenuGuestbook() {
+
+        String chromeDriver = "webdriver.chrome.driver";
+        String driverPath = "/Users/olgasafronova/chromedriver";
+        String url = "http://www.99-bottles-of-beer.net/";
+
+        String expectedResult = "Guestbook";
+
+        System.setProperty(chromeDriver, driverPath);
+        WebDriver driver = new ChromeDriver();
+
+        driver.get(url);
+
+        WebElement searchGuestbook = driver.findElement(
+                By.xpath("//div[@id='navigation']/ul[@id='menu']//a[@href='/guestbookv2.html']"));
+
+        String actualResult = searchGuestbook.getText();
 
         Assert.assertEquals(actualResult, expectedResult.toUpperCase());
 
