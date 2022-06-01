@@ -55,4 +55,69 @@ public class HW_12 {
 
         driver.quit();
     }
+
+    @Test
+    public void testSubMenu() {
+
+        String chromeDriver = "webdriver.chrome.driver";
+        String driverPath = "/Users/olgasafronova/chromedriver";
+        String url = "http://www.99-bottles-of-beer.net/";
+        String expectedResult = "Top Rated";
+
+        System.setProperty(chromeDriver, driverPath);
+        WebDriver driver = new ChromeDriver();
+
+        driver.get(url);
+
+        WebElement searchTopList = driver.findElement(
+                By.xpath("//div[@id='navigation']/ul[@id= 'menu']//a[@href='/toplist.html']"));
+        searchTopList.click();
+
+        WebElement subMenuTopRated = driver.findElement(By.xpath("//div[@id='main']/h2"));
+
+        String actualResult = subMenuTopRated.getText();
+
+        Assert.assertEquals(actualResult, expectedResult);
+
+        driver.quit();
+    }
+
+
+    @Test
+    public void testNumber9() {
+
+        String chromeDriver = "webdriver.chrome.driver";
+        String driverPath = "/Users/olgasafronova/chromedriver";
+        String url = "http://www.99-bottles-of-beer.net/";
+
+        String expectedResult = "9";
+
+        System.setProperty(chromeDriver, driverPath);
+        WebDriver driver = new ChromeDriver();
+
+        driver.get(url);
+
+        WebElement searchGuestbook = driver
+                .findElement(
+                By.xpath("//div[@id='navigation']/ul[@id='menu']//a[@href='/guestbookv2.html']"));
+        searchGuestbook.click();
+
+        WebElement searchButton9 = driver
+                .findElement(
+                By.xpath("//div[@id='main']/p[@style='float:right;']//a[@href='./guestbookv2.html?page=9']")
+        );
+
+        String actualResult = searchButton9.getText();
+
+        Assert.assertEquals(actualResult, expectedResult);
+
+        driver.quit();
+    }
+
+
+    @Test
+    public void testButtonSubmitLanguage() {
+        //div[@id='footer']//a[@href='/search.html']
+
+    }
 }
