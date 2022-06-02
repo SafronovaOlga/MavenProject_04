@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class HW_13_Sergey {
@@ -29,6 +30,15 @@ public class HW_13_Sergey {
         for(Object color: count) {
             System.out.println(color);
         }
+        System.out.println("1_2");
+        // 1_2
+        Iterator<String> iterator = colors.listIterator();
+        while (iterator.hasNext()){
+            if(iterator.next().contains("l")){
+                iterator.remove();
+            }
+        }
+        System.out.println(colors);
         /**
          *  * Задача № 2
          */
@@ -40,14 +50,25 @@ public class HW_13_Sergey {
         }
         System.out.println(integerList);
 
+        System.out.println("2_2");
+        for(int i = integerList.size(); i-- > 0;){
+            if(integerList.get(i) % 2 == 0){
+                integerList.remove(i);
+            }
+        }
+        System.out.println(integerList);
+
         /**
          *  * Задача № 3
          */
-        for (int i = 100; i <= integerList.size(); i ++) {
-            if (i % 2 == 0) {
-                Integer j = integerList.get(i);
-                System.out.println(j);
+
+        System.out.println("3_2");
+        for (Integer i = integerList.size(); i--> 0;){
+            if (integerList.get(i) % 2 == 0){
+               integerList.remove(i.intValue());
             }
         }
+        System.out.println(integerList);
+
     }
 }
