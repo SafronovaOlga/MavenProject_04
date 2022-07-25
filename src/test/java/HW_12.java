@@ -113,11 +113,4 @@ public class HW_12 {
 
         driver.quit();
     }
-
-
-    @Test
-    public void testButtonSubmitLanguage() {
-        //div[@id='footer']//a[@href='/search.html']
-
-    }
 }
